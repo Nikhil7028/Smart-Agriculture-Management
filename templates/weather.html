@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Weather for Agriculture</title>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css">
+    <script src="https://kit.fontawesome.com/a076d05399.js" crossorigin="anonymous"></script>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+
+    <!-- Navbar -->
+      {% include 'header.html' %}
+
+    <!-- Weather Section -->
+    <div class="container mt-5">
+        <h2 class="text-center mb-4">Agriculture Weather Forecast</h2>
+        <div class="search-bar text-center mb-4">
+            <!-- <input type="text" id="cityInput" class="form-control w-50 d-inline-block" placeholder="Enter City Name"> -->
+            <input list="cities" name="city" id="cityInput" placeholder="Start typing a city..." class="form-control w-50 d-inline-block">
+            <datalist id="cities">
+                <option value="Paithan">
+                <option value="Kaij">
+                <option value="Beed">
+                <option value="Latur">
+                <option value="Pune">
+                <option value="Goa">
+                <option value="Nashik">
+                <option value="Satara">
+                <option value="jalna">
+                <option value="San Jose">
+            </datalist>
+            <button class="btn btn-success" onclick="fetchWeather()">Search</button>
+        </div>
+        
+        <div class="weather-box text-center p-4 shadow rounded bg-light">
+          <div id="imges" style="height: 50px; width: 50px;">
+            
+          </div>
+            <h3 id="cityName"></h3>
+            <p id="weatherDesc"></p>
+            <h2 id="temperature"></h2>
+            <p><strong>Humidity:</strong> <span id="humidity"></span>%</p>
+            <p><strong>Wind Speed:</strong> <span id="windSpeed"></span> m/s</p>
+            <p><strong>Rainfall Probability:</strong> <span id="rain"></span> mm</p>
+            <p><strong>Sunrise:</strong> <span id="sunrise"></span></p>
+            <p><strong>Sunset:</strong> <span id="sunset"></span></p>
+        </div>
+
+        <div class="farming-suggestions text-center mt-4">
+            <h4>Farming Suggestions:</h4>
+            <p id="suggestions" class="text-success fw-bold"></p>
+        </div>
+    </div>
+    <br><br><br>
+
+    <script src="/static/js/weather.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+
+    {% include 'footer.html' %}

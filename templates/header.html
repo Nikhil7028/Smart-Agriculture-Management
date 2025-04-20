@@ -1,0 +1,64 @@
+ <!-- Navbar -->
+ <nav class="navbar navbar-expand-lg navbar-dark bg-success position-sticky top-0  border-danger ">
+  <div class="container-fluid">
+    <a class="navbar-brand" href="#">Smart Agriculture Management</a>
+    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse" id="navbarNav">
+      <ul class="navbar-nav ms-auto">
+        <li class="nav-item">
+          <a class="nav-link  {% if request.path == '/' %} active {% endif %}" href="/">Home</a>
+        </li>
+        <li class="nav-item"> 
+          <a class="nav-link {% if request.path == '/government-scheme/' %} active {% endif %}" href="{% url 'government_scheme' %}">Government Scheme</a>
+
+        </li>
+        <li class="nav-item dropdown">
+          <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button"
+             data-bs-toggle="dropdown" aria-expanded="false">
+            Farmer corner
+          </a>
+          <ul class="dropdown-menu text-success" aria-labelledby="navbarDropdown">
+            <li><a class="dropdown-item text-success" href="{% url 'weather' %}">Today weather</a></li>
+            <li><a class="dropdown-item text-success" href="{% url 'recommend_crop' %}">Crop suggestion</a></li>
+            <li><a class="dropdown-item text-success" href="{% url 'available_laborers' %}">Hire laborers</a></li>
+          </ul>
+        </li>
+        
+       
+        <li class="nav-item dropdown">
+          <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button"
+             data-bs-toggle="dropdown" aria-expanded="false">
+            Login
+          </a>
+          <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
+            <li><a class="dropdown-item" href="{% url 'farmer_registration' %}">Farmer Login</a></li>
+            <li><a class="dropdown-item" href="#">Admin Login</a></li>
+            <li><a class="dropdown-item" href="#">Office Login</a></li>
+          </ul>
+        </li>
+        
+        <li class="nav-item dropdown">
+          <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown"  role="button" data-bs-toggle="dropdown" aria-expanded="false">
+            Registration
+          </a>
+          <ul class="dropdown-menu">
+            <li><a class="dropdown-item" href="{% url 'farmer_registration' %}" >Farmer Registration</a></li>
+            <li><a class="dropdown-item" href="{% url 'worker_registration' %}">Worker registration</a></li>
+            <li><a class="dropdown-item" href="#">Office registration</a></li>
+          </ul>
+        </li>
+
+        <li class="nav-item"><a class="nav-link" href="#contact">Contact Us</a></li>
+        <li class="nav-item"><a class="nav-link" href="https://blogpage.pythonanywhere.com">About </a></li>
+        <li class="nav-item">
+          <a id="google_translate_element" class="btn btn-outline-light ms-2"></a>
+          
+        </li>
+        
+
+      </ul>
+    </div>
+  </div>
+</nav>

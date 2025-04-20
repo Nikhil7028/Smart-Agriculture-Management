@@ -1,0 +1,64 @@
+<footer class="bg-success text-white text-center py-2">
+  <nav class="navbar bg-light text-success ">
+    <div class="container-fluid d-flex justify-content-evenly">
+      <a class="nav-link fw-bold" href="#">Home</a>
+      <a class="nav-link fw-bold" href="/goverment-scheme">Goverment Scheme</a>
+      <a class="nav-link fw-bold" href="/recommend-crop/">Crop Recommendation</a>
+      <a class="nav-link fw-bold" href="">weather</a>
+      <a class="nav-link fw-bold" href="">Login</a>
+      <a class="nav-link fw-bold" href="">About us</a>
+
+    </div>
+
+  </nav>
+  <p>&copy; 2024 Smart Agriculture Management | Develop by Nikhil Choudhari <a
+      href="https://blogpage.pythonanywhere.com">More information</a></p>
+
+</footer>
+{% comment %} bootstrap link for js {% endcomment %}
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+
+
+
+
+{% comment %} for Language translator  {% endcomment %}
+<script type="text/javascript">
+  // Function for  google translate
+  function googleTranslateElementInit() {
+    new google.translate.TranslateElement({
+      pageLanguage: 'en',  // Default language
+      includedLanguages: 'en,hi,ta,te,bn,gu,ml,mr,pa,ur', // Add languages you want (ISO codes)
+      layout: google.translate.TranslateElement.InlineLayout.SIMPLE
+    }, 'google_translate_element');
+  }
+
+  // function for dropdown
+    document.addEventListener('DOMContentLoaded', function () {
+      const dropdowns = document.querySelectorAll('.nav-item.dropdown');
+  
+      dropdowns.forEach(function (dropdown) {
+        const toggle = dropdown.querySelector('.dropdown-toggle');
+        const menu = dropdown.querySelector('.dropdown-menu');
+  
+        // Show on mouseenter
+        dropdown.addEventListener('mouseenter', function () {
+          const bsDropdown = bootstrap.Dropdown.getOrCreateInstance(toggle);
+          bsDropdown.show();
+        });
+  
+        // Hide on mouseleave
+        dropdown.addEventListener('mouseleave', function () {
+          const bsDropdown = bootstrap.Dropdown.getOrCreateInstance(toggle);
+          bsDropdown.hide();
+        });
+      });
+    });
+  
+
+</script>
+<script type="text/javascript" src="//translate.google.com/translate_a/element.js?cb=googleTranslateElementInit"></script>
+
+
+</body>
+
+</html>

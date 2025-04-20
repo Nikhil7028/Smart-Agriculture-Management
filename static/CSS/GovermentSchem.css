@@ -1,0 +1,42 @@
+
+body {
+    font-family: Arial, sans-serif;
+}
+
+.hero-section {
+    background: url('https://media.istockphoto.com/id/506164764/photo/tractor-spraying-soybean-field.jpg?s=2048x2048&w=is&k=20&c=pEY0xp1phwaP5OdXDeJyCNnXd7CnB4hhBxFhjiIdkOo=') no-repeat center;
+    background-size: cover;
+    /* opacity: 0.5; */
+    color: white;
+    text-align: center;
+    padding: 60px 20px;
+}
+
+.content-section {
+    padding: 40px 20px;
+}
+
+.video-container {
+    text-align: center;
+    margin-top: 20px;
+}
+
+.video-container iframe {
+    width: 100%;
+    max-width: 720px;
+    height: 400px;
+}
+
+.card-img-top{
+  height: 50%;
+}
+        
+
+.card {
+  transition: transform 0.3s ease-in-out, box-shadow 0.3s ease-in-out;
+}
+
+.card:hover {
+  transform: scale(1.10); /* Slightly increase size */
+  box-shadow: 0 10px 20px rgba(72, 243, 4, 0.2); /* Add shadow for effect */
+}

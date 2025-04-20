@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Government Scheme - Smart Agriculture</title>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" />
+
+    <link rel="stylesheet" href="/static/CSS/GovermentSchem.css" />
+  </head>
+
+  <body>
+    <!-- Navbar -->
+    {% include 'header.html' %}
+
+    <!-- Hero Section -->
+    <section class="hero-section">
+      <div class="container bg-success">
+        <h1>Government Scheme for Farmers</h1>
+        <p>Empowering farmers with financial and technical support to improve agricultural productivity.</p>
+      </div>
+    </section>
+
+    <!-- Scheme Details Section -->
+    <div class="container my-2">
+      <div class="row">
+        <div class="card col-md-4 mb-4 ms-4" style="width: 18rem;">
+          <a href="/farmer-scheme/" class="text-dark text-underline-none" style="color: inherit; text-decoration: none; size: 20%;">
+            <img src="/static/img/pm-kisan-scheme.jpg" class="card-img-top image-round" alt="PM Kisan Scheme" />
+            <div class="card-body">
+              <h5 class="card-title">PM kisan sanman Nidhi Scheme</h5>
+              <p class="card-text">PM-Kisan Scheme is a government initiative to provide financial assistance to small and marginal farmers.</p>
+            </div>
+            <ul class="list-group list-group-flush">
+              <li class="list-group-item">
+                official link: <a href="">Click here</a>
+              </li>
+              <li class="list-group-item">
+                <a href="">Read more...</a>
+              </li>
+            </ul>
+          </a>
+        </div>
+
+        <!-- Pradhan Mantri Fasal Bima Yojana Card -->
+        <div class="card col-md-4 mb-4 ms-4" style="width: 18rem;">
+          <a href="/farmer-scheme/" class="text-dark text-underline-none" style="color: inherit; text-decoration: none; size: 20%;">
+            <img src="/static/img/fasal-bima-yojana.webp" class="card-img-top img-fluid" alt="Pradhan Mantri Fasal Bima Yojana" />
+            <div class="card-body">
+              <h5 class="card-title">Pradhan Mantri Fasal Bima Yojana</h5>
+              <p class="card-text">PMFBY is a crop insurance scheme launched by the government to provide financial protection to farmers in case of crop failure.</p>
+            </div>
+            <ul class="list-group list-group-flush">
+              <li class="list-group-item">
+                Official link: <a href="#">Click here</a>
+              </li>
+              <li class="list-group-item">
+                <a href="#">Read more...</a>
+              </li>
+            </ul>
+          </a>
+        </div>
+
+        <!-- National Agriculture Market (eNAM) Card -->
+        <div class="card col-md-4 mb-4 ms-4" style="width: 18rem;">
+            <a href="/farmer-scheme/" class="text-dark text-underline-none" style="color: inherit; text-decoration: none; size: 20%;">
+          <img src="/static/img/enam-scheme.jpg" class="card-img-top img-fluid" alt="eNAM Scheme" />
+          <div class="card-body">
+            <h5 class="card-title">National Agriculture Market (eNAM)</h5>
+            <p class="card-text">eNAM is an online trading platform that connects farmers with agricultural markets, helping them get better prices for their produce.</p>
+          </div>
+          <ul class="list-group list-group-flush">
+            <li class="list-group-item">
+              Official link: <a href="#">Click here</a>
+            </li>
+            <li class="list-group-item">
+              <a href="#">Read more...</a>
+            </li>
+          </ul>
+            </a>
+        </div>
+      </div>
+    </div>
+
+    <!-- Video Explanation Section -->
+    <section class="content-section video-container">
+      <h2>Watch this Video to Learn More</h2>
+      <iframe src="https://www.youtube.com/embed/Kr3cBIhvdw0?si=fFteM2M9r6T7Shym" allowfullscreen></iframe>
+    </section>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+
+    <!-- Footer -->
+
+    {% include 'footer.html' %}
+  </body>
+</html>

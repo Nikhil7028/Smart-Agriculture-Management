@@ -1,0 +1,27 @@
+/* this css for index.html */
+
+
+.sticky-bottom-right {
+  position: sticky;
+  bottom: 20px;
+  right: 0;
+  margin-right: 20px; /* Adds spacing from the right edge */
+  max-width: 100px; /* Adjust for responsiveness */
+  z-index: 1000;
+
+}
+@media (max-width: 480px) {
+  .sticky-bottom-right img{
+    height: 90px;
+    width: 82px;
+
+  }
+}
+  
+
+
+
+a:hover{
+  background-color: antiquewhite !important;
+  color: black;
+}
