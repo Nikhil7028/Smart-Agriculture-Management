@@ -38,6 +38,7 @@ INSTALLED_APPS = [
     'django.contrib.messages',
     'django.contrib.staticfiles',
     'agri',
+    'office',
 ]
 
 MIDDLEWARE = [
@@ -106,11 +107,12 @@ AUTH_PASSWORD_VALIDATORS = [
 
 LANGUAGE_CODE = 'en-us'
 
-TIME_ZONE = 'UTC'
+TIME_ZONE = 'Asia/Kolkata'  # Set your desired timezone
+# TIME_ZONE = 'UTC'    # default time zone
 
 USE_I18N = True
-
 USE_TZ = True
+
 
 
 # Static files (CSS, JavaScript, Images)

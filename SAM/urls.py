@@ -16,19 +16,31 @@ Including another URLconf
 """
 from django.contrib import admin
 from django.urls import path
+
+from django.conf import settings
+from django.conf.urls.static import static
+
 from agri import views
+from office import views as fviews
 
 urlpatterns = [
     path('admin/', admin.site.urls),
     path('', views.home, name='home'),
     path('weather/', views.weather, name='weather'),
     path('government-scheme/', views.GovermentScheme, name='government_scheme'),
-    # path('government-scheme/', views.GovermentScheme, name='government_scheme'),
 
     path('available-laborers/', views.AvailableLaborers, name='available_laborers'),
     path('recommend-crop/', views.RecommendCrop, name='recommend_crop'),
-    path('farmer-scheme/', views.schemeDetail, name='farmer_scheme'),
+    path('scheme-detail/<slug:slug>/', views.schemeDetail, name='scheme_detail'),
+    
     path('farmer-registration/', views.farmerRegistration, name='farmer_registration'),
     path('worker-registration/', views.workerRegistration, name='worker_registration'),
 
-]
+
+    # office login
+    path('office-login/', fviews.officeLogin, name='office_login'),
+    path('office-dashboard/', fviews.officeDashboard, name='office_home'),
+    path('office-logout/', fviews.f_logout, name='f_logout'),
+
+    
+]+ static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)

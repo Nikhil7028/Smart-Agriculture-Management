@@ -14,10 +14,10 @@
   <!-- Video Section -->
   <section class="bg-dark py-4">
     <div class="container">
-      <h1 class="text-white text-center mb-4">How to Apply for XYZ Government Scheme</h1>
+      <h1 class="text-white text-center mb-4">How to Apply for {{ scheme.title }}</h1>
       <div class="mx-auto" style="max-width: 960px;">
         <div class="ratio ratio-16x9">
-          <iframe src="https://www.youtube.com/embed/Kr3cBIhvdw0?si=fFteM2M9r6T7Shym" title="Application Guide" allowfullscreen></iframe>
+          <iframe src="{{ scheme.ytVideo }}" title="Application Guide" allowfullscreen></iframe>
         </div>
       </div>
     </div>
@@ -28,15 +28,18 @@
   <section class="py-5">
     
     <div class="container">
-      <h3>Apply link: <a href="">Click here</a>  </h3>
+      <h3>Apply link: <a href="{{ scheme.officialweb }}">Click here</a>  </h3>
       <br>
       
-      <h2>About the XYZ Scheme</h2>
+      <h2>About the {{ scheme.title }}</h2>
       <p>
-        This government scheme provides support to small and marginal farmers with financial aid, free training, equipment, and crop insurance.
+        {{ scheme.desc }}
+      </p>
+      <p>
+       <strong> Official Website:</strong> {{ scheme.officialweb }}
       </p>
 
-      <div class="row">
+      {% comment %} <div class="row">
         <div class="col-md-6">
           <h4>Benefits</h4>
           <ul>
@@ -59,7 +62,7 @@
       <!-- PDF Download -->
       <div class="mt-4">
         <a href="XYZ_Scheme_Details.pdf" class="btn btn-outline-primary" download>📄 Download Full Scheme PDF</a>
-      </div>
+      </div> {% endcomment %}
     </div>
   </section>
 
@@ -69,14 +72,14 @@
       <h2 class="mb-4">Gallery</h2>
       <div class="row g-3">
         <div class="col-md-4">
-          <img src="image1.jpg" class="img-fluid rounded shadow-sm" alt="Farmers training">
+          <img src="{{ scheme.titleimg.url }}" class="img-fluid rounded shadow-sm" alt="Farmers training">
         </div>
-        <div class="col-md-4">
+        {% comment %} <div class="col-md-4">
           <img src="image2.jpg" class="img-fluid rounded shadow-sm" alt="Equipment Distribution">
         </div>
         <div class="col-md-4">
           <img src="image3.jpg" class="img-fluid rounded shadow-sm" alt="On-field support">
-        </div>
+        </div> {% endcomment %}
       </div>
     </div>
   </section>

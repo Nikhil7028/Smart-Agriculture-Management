@@ -27,7 +27,7 @@ class worker(models.Model):
     dist = models.CharField(max_length=20)
     subDist= models.CharField(max_length=20)
     village = models.CharField(max_length=30)    
-    mobno = models.CharField(max_length=10)
+    mobno = models.CharField(max_length=10, unique=True)    
     skill= models.CharField(max_length=250,  blank=True, null=True)
     availabillity=models.BooleanField(default=False)
     date = models.DateTimeField(auto_now_add=True)

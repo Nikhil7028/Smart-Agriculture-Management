@@ -16,42 +16,128 @@
         <h1 class="text-info">Available Farm Laborers</h1>
         <p class="text-muted">Find skilled laborers ready to help with your farming tasks.</p>
       </div>
+      <form method="post" class="row mb-4" id="myform">
+        {% csrf_token %}
+        <div class="row mb-4">
+          <div class="col-md-3">
+            <label for="districtSelect" class="form-label">District</label>
+            <select id="districtSelect" class="form-select" name="district" required>
+                {% if Selectdistrict %}
+                <option value="{{ Selectdistrict }}" selected>{{ Selectdistrict }}</option>
+                {% else %}
+                    <option value="">-- Select District --</option>
+                    {% for dis in dist %}
+                        <option value="{{ dis }}">{{ dis }}</option>
+                    {% endfor %}
+                {% endif %}
+                
+            </select>
+          </div>
+
+          {% if Selectdistrict %}
+            <div class="col-md-3">
+              <label for="subDistSelect" class="form-label">Sub-District</label>
+              <select id="subDistSelect" class="form-select" name="subDist" required>
+                {% if SelectSubd %}
+                <option value="{{ SelectSubd }}" selected>{{ SelectSubd }}</option>
+                {% else %}
+                    <option value="">-- Select Sub-district --</option>
+                    {% for option in options %}
+                        <option value="{{ option  }}">{{ option }}</option>
+                    {% endfor %}
+                {% endif %}
+              </select>
+            </div>
+          {% endif %}
+
+          {% if SelectSubd %}
+            <div class="col-md-3">
+              <label for="villageSelect" class="form-label">Village</label>
+              <select id="villageSelect" class="form-select" name="village" required>
+                {% if SelectVillage %}
+                <option value="{{ SelectVillage }}" selected>{{ SelectVillage }}</option>
+                {% else %}
+                    <option value="">-- Select Village --</option>
+                    {% for option in options %}
+                        <option value="{{ option }}">{{ option }}</option>
+                    {% endfor %}
+                {% endif %}
+                
+              </select>
+            </div>
+          {% endif %}
+          <div class="col-md-3">
+            {% if Selectdistrict %}
+            <a href="{% url 'available_laborers' %}" class="btn btn-info w-100 mb-2">Clear</a>
+            {% else %}
+            <br>
+            {% endif %}
+            {% if SelectVillage %}
+            {% else %}
+            <button class="btn btn-success w-100">Apply filter</button>
+            {% endif %}
+          </div>
+        </div>
+      </form>
 
       <div id="laborers-list" class="row">
         {% for worker in workers %}
           <div class="col-md-3">
             <div class="card shadow-sm border-success mb-3">
               <img src="/static/img/icons/{{ worker.gender }}.jpg" class="card-img-top" alt="{{ worker.name }}" width="40px" height="200px" />
-             
+
               <div class="card-body text-center">
                 <h5 class="card-title text-info">{{ worker.fullName }}</h5>
                 <p class="card-text">
-                  <strong>District:</strong> {{ worker.dist }}  &nbsp;  &nbsp; 
-                  <strong>Sub-District: </strong> {{ worker.subDist }}
+                  <strong>District:</strong> {{ worker.dist }} &nbsp; &nbsp;
+                  <strong>Sub-District:</strong> {{ worker.subDist }}
                 </p>
                 <p class="card-text">
-                  <strong>Village: </strong> {{ worker.village }}
+                  <strong>Village:</strong> {{ worker.village }}
                 </p>
                 <p class="card-text">
                   <strong>Contact:</strong> {{ worker.mobno }}
                 </p>
                 {% if worker.skill %}
-                <p class="card-text">
-                  <strong>Skill :</strong> {{ worker.skill }}
-                </p>
+                  <p class="card-text">
+                    <strong>Skill :</strong> {{ worker.skill }}
+                  </p>
                 {% endif %}
               </div>
             </div>
           </div>
         {% empty %}
-          <p class="text-center text-muted">No available workers at the moment.</p>
+
+
+          
+
+            <div class="col-md-3">
+                <div class="card shadow-sm border-success mb-3" aria-hidden="true">
+                    <img src="/static/img/icons/{{ worker.gender }}.jpg" class="card-img-top placeholder" style="height: 200px;" alt="Worker Image" />
+
+                <div class="card-body">
+                    <h5 class="card-title placeholder-glow">
+                        <span class="placeholder col-6"></span>
+                    </h5>
+                    <p class="card-text placeholder-glow">
+                        <span class="placeholder col-7"></span>
+                        <span class="placeholder col-4"></span><br>
+                        <span class="placeholder col-4"></span>
+                        <span class="placeholder col-6"></span><br>
+                        <span class="placeholder col-8"></span>
+                    </p>
+                    <a class="btn btn-outline-info disabled placeholder col-6" aria-disabled="true"></a>
+                </div>
+                </div>
+            </div>
+
         {% endfor %}
       </div>
     </div>
     <br /><br /><br /><br /><br /><br />
     <br /><br /><br /><br /><br /><br />
     <br /><br /><br />
+    <script src="/static/js/available_worker.js"></script>
 
     {% include 'footer.html' %}
-  </body>
-</html>
+

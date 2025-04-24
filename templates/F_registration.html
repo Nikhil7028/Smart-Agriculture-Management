@@ -30,14 +30,14 @@
         <div class="row g-3">
           <div class="col-md-4 mb-3 mt-5">
             <label for="fullName" class="form-label">Full Name</label>
-            <input type="text" class="form-control" id="fullName" name="fullName" required />
-            
+            <input type="text" class="form-control"  pattern="^[A-Za-z\s]+$" id="fullName" name="fullName" required />
           </div>
 
           <!-- Mobile Number -->
           <div class="col-md-4 mb-3 mt-5">
             <label for="phone" class="form-label">Mobile Number</label>
-            <input type="number" class="form-control" id="phone" name="phone" required />
+            <input type="number" class="form-control"  pattern="^\d{10}$" 
+            title="Please enter a valid 10-digit mobile number" id="phone" name="phone" required />
           </div>
 
           <!-- WhatsApp Number -->
@@ -47,7 +47,8 @@
               <label class="form-check-label" for="sameAsMobile">Same as mobile number</label>
             </div>
             <label for="whatsapp" class="form-label">WhatsApp Number</label>
-            <input type="number" class="form-control" id="whatsapp" name="whatsapp" required />
+            <input type="number" class="form-control" id="whatsapp" 
+            pattern="^\d{10}$" title="Please enter a valid 10-digit mobile number" name="whatsapp" required />
           </div>
           <div class="col-md-4">
             <label for="email" class="form-label">Email (optional)</label>
@@ -69,15 +70,15 @@
         <div class="row g-3">
           <div class="col-md-4">
             <label for="village" class="form-label">Village/Town</label>
-            <input type="text" class="form-control" id="village" name="village" required />
+            <input type="text" class="form-control"  pattern="^[A-Za-z\s]+$" id="village" name="village" required />
           </div>
           <div class="col-md-4">
             <label for="district" class="form-label">District</label>
-            <input type="text" class="form-control" name="dist" required />
+            <input type="text" class="form-control"  pattern="^[A-Za-z\s]+$" name="dist" required />
           </div>
           <div class="col-md-4">
             <label for="state" class="form-label">Sub district</label>
-            <input type="text" class="form-control" name="subdistrict" required />
+            <input type="text" class="form-control"  pattern="^[A-Za-z\s]+$" name="subdistrict" required />
           </div>
           <div class="col-md-4">
             <label for="pincode" class="form-label">Pin Code</label>

@@ -1,9 +1,10 @@
 # Create your views here.
 from django.http import HttpResponse
-from django.shortcuts import redirect, render
+from django.shortcuts import get_object_or_404, redirect, render
 import requests
 from django.http import JsonResponse
 from .models import FarmerInfo, worker
+from office.models import Scheme
 # Load model once globally
 # views.py
 import os
@@ -31,7 +32,12 @@ def RecommendCrop(request):
     return render(request, 'recommend_crop.html', {'result': result})
 
 def home(request):
-    return render(request, 'index.html')
+    countFarmer= FarmerInfo.objects.count()
+    available_workers = worker.objects.filter(availabillity=True).count()
+    top5_schemes = Scheme.objects.order_by('-id')[:5] 
+    count={'registerFarmer':countFarmer, 'availableWorker': available_workers,'top5_schemes':top5_schemes}
+    # print(count)
+    return render(request, 'index.html', count)
 
 def weather(request):
     return render(request, 'weather.html')
@@ -39,18 +45,52 @@ def weather(request):
 def GovermentScheme(request):
     return render(request, 'GovermentSchem.html')
 
-# def AvailableLaborers(request):
-#     return render(request, 'available-laborers.html')
-# def AvailableLaborers(request):
-#     workers = worker.objects.filter(availabillity=True)
-#     print(worker)
-#     return render(request, 'available-laborers.html', {'workers': workers})
+
+def AvailableLaborers(request):
+    if request.method == 'POST':
+        Selectdistrict = request.POST.get('district')
+        if Selectdistrict:
+            SelectSubd = request.POST.get('subDist')
+            if SelectSubd:
+                selectVillage = request.POST.get('village')
+                if selectVillage:
+                    workers = worker.objects.filter(
+                        availabillity=True,
+                        village=selectVillage,
+                        subDist=SelectSubd,
+                        dist=Selectdistrict
+                    )
+                    return render(
+                        request, 'available-laborers.html',
+                        {'Selectdistrict':Selectdistrict,'SelectSubd':SelectSubd,
+                         'SelectVillage':selectVillage, 'workers': workers}
+                    )
+                else:   # if village is not selected only dist and sub-dist
+                    workers = worker.objects.filter(
+                        availabillity=True,
+                        subDist=SelectSubd,
+                        dist=Selectdistrict
+                    )
+                    distinctVillage = worker.objects.filter(availabillity=True, dist=Selectdistrict, subDist=SelectSubd).values_list('village', flat=True).distinct()
+                    return render(
+                        request, 'available-laborers.html',
+                        {'Selectdistrict':Selectdistrict,'SelectSubd':SelectSubd,
+                         'options':distinctVillage,
+                         'workers': workers}
+                    )
+            else:    #only select dist
+               workers = worker.objects.filter(availabillity=True, dist=Selectdistrict)
+               distinctSubd = worker.objects.filter(availabillity=True, dist=Selectdistrict).values_list('subDist', flat=True).distinct()
+               print(distinctSubd)
+               return render(request, 'available-laborers.html',{'Selectdistrict':Selectdistrict, 'options':distinctSubd, 'workers': workers})
+    districts = worker.objects.values_list('dist', flat=True).distinct()
+    return render(request, 'available-laborers.html',{'dist':districts})
 
 
 
-
-def schemeDetail(request):
-    return render(request, 'SchemeDetail.html')
+def schemeDetail(request, slug):
+    scheme = get_object_or_404(Scheme, slug=slug)
+    return render(request, 'SchemeDetail.html', {'scheme': scheme})
 
 
 def farmerRegistration(request):
@@ -61,9 +101,9 @@ def farmerRegistration(request):
             whatappsno = request.POST.get('whatsapp')
             email = request.POST.get('email')
             gender = request.POST.get('gender')
-            village = request.POST.get('village')
-            dist = request.POST.get('dist')
-            subdistrict = request.POST.get('subdistrict')
+            village = request.POST.get('village').capitalize()
+            dist = request.POST.get('dist').capitalize()
+            subdistrict = request.POST.get('subdistrict').capitalize()
             pincode = request.POST.get('pincode')
             landSize = request.POST.get('landSize')
             cropType = request.POST.get('cropType')
@@ -90,9 +130,9 @@ def workerRegistration(request):
             name = request.POST.get('name')
             age = request.POST.get('age')
             gender = request.POST.get('gender')
-            dist = request.POST.get('dist')
-            subdist = request.POST.get('sub_district')
-            village = request.POST.get('village')
+            dist = request.POST.get('dist').capitalize()
+            subdist = request.POST.get('sub_district').capitalize()
+            village = request.POST.get('village').capitalize()
             phone = request.POST.get('mobno')
             skills = request.POST.get('skills')
             availability = request.POST.get('availability')
@@ -112,7 +152,13 @@ def workerRegistration(request):
             print(f"Error: {e}")
             cls='danger'
             status="ERROR"
-            notify= "Form not submitted {e}"
+            notify= f"Form not submitted {e}"
         return render (request, 'worker_registration.html',{'cls':cls,'status': status, 'msg': notify})
     return render(request, 'worker_registration.html')
+
+
+
+
+
+
 
