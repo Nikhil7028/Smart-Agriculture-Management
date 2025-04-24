@@ -1,0 +1,4 @@
+# Ignore a specific file
+weather.js
+# Ignore compiled Python files which are used for Crop recommandation 
+crop_recommendation_model.pkl
