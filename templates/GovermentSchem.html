@@ -24,26 +24,28 @@
     <!-- Scheme Details Section -->
     <div class="container my-2">
       <div class="row">
+        {% for scheme in schemes %}
         <div class="card col-md-4 mb-4 ms-4" style="width: 18rem;">
-          <a href="/farmer-scheme/" class="text-dark text-underline-none" style="color: inherit; text-decoration: none; size: 20%;">
-            <img src="/static/img/pm-kisan-scheme.jpg" class="card-img-top image-round" alt="PM Kisan Scheme" />
+          <a href="{% url 'scheme_detail' scheme.slug %}" class="text-dark text-underline-none" style="color: inherit; text-decoration: none; size: 20%;">
+            <img src="/media/{{ scheme.titleimg }}" class="card-img-top image-round" alt="PM Kisan Scheme" />
             <div class="card-body">
-              <h5 class="card-title">PM kisan sanman Nidhi Scheme</h5>
-              <p class="card-text">PM-Kisan Scheme is a government initiative to provide financial assistance to small and marginal farmers. </p>
+              <h5 class="card-title">{{ scheme.title }}</h5>
+              <p class="card-text">{{ scheme.desc|truncatewords:20 }} ... </p>
             </div>
             <ul class="list-group list-group-flush">
               <li class="list-group-item">
-                official link: <a href="">Click here</a>
+                official link: <a href="{{ scheme.officialweb }}" target="_blank">Click here</a>
               </li>
               <li class="list-group-item">
-                <a href="">Read more...</a>
+                <a href="{% url 'scheme_detail' scheme.slug %}">Read more...</a>
               </li>
             </ul>
           </a>
         </div>
+        {% endfor %}
 
         <!-- Pradhan Mantri Fasal Bima Yojana Card -->
-        <div class="card col-md-4 mb-4 ms-4" style="width: 18rem;">
+        {% comment %} <div class="card col-md-4 mb-4 ms-4" style="width: 18rem;">
           <a href="/farmer-scheme/" class="text-dark text-underline-none" style="color: inherit; text-decoration: none; size: 20%;">
             <img src="/static/img/fasal-bima-yojana.webp" class="card-img-top img-fluid" alt="Pradhan Mantri Fasal Bima Yojana" />
             <div class="card-body">
@@ -59,10 +61,10 @@
               </li>
             </ul>
           </a>
-        </div>
+        </div> {% endcomment %}
 
         <!-- National Agriculture Market (eNAM) Card -->
-        <div class="card col-md-4 mb-4 ms-4" style="width: 18rem;">
+        {% comment %} <div class="card col-md-4 mb-4 ms-4" style="width: 18rem;">
             <a href="/farmer-scheme/" class="text-dark text-underline-none" style="color: inherit; text-decoration: none; size: 20%;">
           <img src="/static/img/enam-scheme.jpg" class="card-img-top img-fluid" alt="eNAM Scheme" />
           <div class="card-body">
@@ -78,7 +80,7 @@
             </li>
           </ul>
             </a>
-        </div>
+        </div> {% endcomment %}
       </div>
     </div>
 

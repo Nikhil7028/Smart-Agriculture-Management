@@ -103,6 +103,10 @@
                     <strong>Skill :</strong> {{ worker.skill }}
                   </p>
                 {% endif %}
+                <form method="POST" action="{% url 'hire_worker' worker.id %}">
+                  {% csrf_token %}
+                  <button type="submit" class="btn btn-primary btn-sm">Hire Worker</button>
+              </form>
               </div>
             </div>
           </div>

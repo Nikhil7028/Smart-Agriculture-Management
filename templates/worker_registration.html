@@ -94,10 +94,28 @@
               <!-- Row 5: Skills -->
               <div class="mb-3">
                 <label for="skills" class="form-label">Skills</label>
-                <textarea name="" class="form-control" id="skills" name="skills" maxlength="249" placeholder="E.g., Plowing, Harvesting" cols="30" rows="3"></textarea>
+                <textarea name="" class="form-control" id="skills" name="skills" maxlength="249" placeholder="E.g., Plowing, Harvesting" cols="30" rows="2"></textarea>
               </div>
 
-              <!-- Row 6: Availability -->
+              <!-- Row 6: password -->
+              <div class="row mb-3">
+                <div class="col">
+                  <label for="newPassword" class="form-label"> Password</label>
+                    <input type="password" class="form-control" id="newPassword" name="newPassword" placeholder="Enter a password" required
+                        pattern="^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[@$!#%*?&])[A-Za-z\d@$!#%*?&]{8,}$" 
+                        title="Password must be at least 8 characters, contain at least one uppercase letter, one lowercase letter, one number, and one special character (@$!#%*?&)">
+                </div>
+                <div class="col">
+                  <label for="confirmNewPassword" class="form-label">Confirm Password</label>
+                    <input type="password" class="form-control" id="confirmNewPassword" name="confirmNewPassword" placeholder="Confirm your  password" required>
+
+                </div>
+              </div>
+              
+
+
+
+              <!-- Row 7: Availability -->
               <div class="mb-4">
                 <label class="form-label d-block">Availability</label>
                 <div class="form-check form-check-inline">
@@ -121,4 +139,5 @@
 
       {% comment %} Footer {% endcomment %}
 
+      <script src="/static/js/office/MatchPassword.js"></script>
       {% include 'footer.html' %}

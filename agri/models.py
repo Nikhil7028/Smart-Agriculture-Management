@@ -15,6 +15,7 @@ class FarmerInfo(models.Model):
     totalland = models.IntegerField(null=True)
     maincrop = models.CharField(max_length=90,  blank=True, null=True)
     irrigation = models.CharField(max_length=90, blank=True, null=True)
+    password= models.CharField(max_length=20)  
     date = models.DateTimeField(auto_now_add=True)
 
     def __str__(self):
@@ -27,10 +28,28 @@ class worker(models.Model):
     dist = models.CharField(max_length=20)
     subDist= models.CharField(max_length=20)
     village = models.CharField(max_length=30)    
-    mobno = models.CharField(max_length=10, unique=True)    
+    mobno = models.CharField(max_length=10, unique=True) 
+    password= models.CharField(max_length=20)   
     skill= models.CharField(max_length=250,  blank=True, null=True)
     availabillity=models.BooleanField(default=False)
     date = models.DateTimeField(auto_now_add=True)
 
+class contactUs(models.Model):
+    Name= models.CharField(max_length=100)
+    email= models.CharField(max_length=50, unique=True)
+    phone= models.CharField(max_length=10) 
+    message = models.CharField(max_length=290)
+    checked= models.BooleanField(default=False)
+    date = models.DateTimeField(auto_now_add=True)
+    
 
-
+class HireRequest(models.Model):
+    farmer = models.CharField(max_length=100) 
+    worker = models.ForeignKey(worker, on_delete=models.CASCADE)
+    purpose = models.CharField(max_length=200)
+    duration = models.PositiveIntegerField()
+    location = models.CharField(max_length=200)
+    f_mobno = models.CharField(max_length=10)
+    hire_date = models.DateTimeField(auto_now_add=True)
+    STATUS = models.CharField(max_length=200, default='pending')
+    

@@ -1,0 +1,47 @@
+<!-- Sidebar -->
+
+<div class="col-md-2 sidebar d-none d-md-block">
+  <h4> <i style="font-size:24px" class="fa">&#xf0e4;</i> Dashboard</h4>
+  <a href="{% url 'worker_home' %}" class="{% if request.path == '/worker-dashboard/' %} active {% endif %}">
+    <i style="font-size:24px" class="fa">&#xf015;</i> &nbsp;
+    Home</a>
+
+    <a href="{% url 'accept_request' %}" class="{% if request.path == '/accept-request/' %} active {% endif %}">
+      <i class="fa fa-tasks" style="font-size:24px"></i> &nbsp;
+      Requests
+  </a>
+  
+    
+  
+
+  <a href="{% url "w_logout" %}" class="logout-btn">
+    <i class="fa fa-sign-out"></i> &nbsp;
+
+    Logout</a>
+</div>
+
+<!-- Sidebar collapse button for smaller screens -->
+{% comment %} <button class="toggle-btn d-md-none " id="sidebarToggle">
+  <i class="bi bi-list bg-dark">Ni
+Nikhil
+  </i> 
+  <i class="bi bi-list bg-dark">Ni
+Nikhil
+  </i> 
+  <i class="bi bi-list bg-dark">Ni
+Nikhil
+  </i> 
+  <i class="bi bi-list bg-dark">Ni
+Nikhil
+  </i> 
+</button> {% endcomment %}
+<button class="toggle-btn btn btn-dark d-md-none position-sticky top-0 w-100 bg-dark" id="sidebarToggle" style="z-index: 1050;">
+  <i class="bi bi-list me-2 fa" style="font-size:24px">&#xf0e4;</i> 
+  <a href="{% url 'worker_home' %}" class="{% if request.path == '/worker-dashboard/' %} active {% endif %}">
+    <i style="font-size:24px" class="fa">&#xf015;</i> &nbsp;
+    Home</a>
+  <i class="bi bi-list me-2"></i> 
+  <i class="bi bi-list me-2"></i> 
+  <i class="bi bi-list me-2"></i> 
+  <i class="bi bi-list me-2"></i> 
+</button>

@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Farmer Registration</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet" />
+  </head>
+  <body>
+    {% include 'header.html' %}
+
+    <div class="container py-5">
+      <h2 class="text-center text-success mb-4">
+        Request for worker
+        {% comment %} <img src="/static/img/pmfby-mascot-linkflip.svg" alt="Mascot" /> {% endcomment %}
+      </h2>
+      {% if success %}
+      <script>
+          alert("Hire request sent successfully!");
+          window.location.href = "{% url 'available_laborers' %}";
+      </script>
+      {% endif %}
+      <div class="container mt-5">
+        <div class="card shadow-sm p-4">
+            <h4>Hire worker {{ worker.fullName }}</h4>
+            <div class="container mt-5">
+              <div class="card shadow-sm p-4">
+                  <h4>Hire {{ worker.full_name }}</h4>
+                  <form method="POST">
+                      {% csrf_token %}
+                      
+                      <div class="row">
+                          <!-- Farmer Name -->
+                          <div class="mb-3 col-md-6">
+                              <label class="form-label">Enter Farmer Name</label>
+                              <input type="text" name="fname" class="form-control" placeholder="Enter your full name" required>
+                          </div>
+          
+                          <!-- Farmer Mobile Number -->
+                          <div class="mb-3 col-md-6">
+                              <label class="form-label">Enter Mobile Number</label>
+                              <input type="tel" name="fmob" class="form-control" placeholder="Enter your mobile number" required>
+                          </div>
+                      </div>
+          
+                      <!-- Purpose -->
+                      <div class="mb-3">
+                          <label class="form-label">Purpose</label>
+                          <input type="text" name="purpose" class="form-control" placeholder="Enter work purpose" required>
+                      </div>
+          
+                      <!-- Duration -->
+                      <div class="mb-3">
+                          <label class="form-label">Duration (days)</label>
+                          <input type="number" name="duration" class="form-control" placeholder="Enter duration in days" required>
+                      </div>
+          
+                      <!-- Location -->
+                      <div class="mb-3">
+                          <label class="form-label">Location</label>
+                          <textarea name="location" class="form-control" placeholder="Enter work location" rows="3" required></textarea>
+                      </div>
+          
+                      <!-- Buttons -->
+                      <div class="d-flex justify-content-between">
+                          <a href="{% url 'available_laborers' %}" class="btn btn-secondary">Cancel</a>
+                          <button type="submit" class="btn btn-success">Send Hire Request</button>
+                      </div>
+                  </form>
+              </div>
+          </div>
+          
+        </div>
+    </div>
+    
+
+    </div>
+    <script>
+      function copyPhoneNumber() {
+        const phone = document.getElementById('phone').value
+        const whatsapp = document.getElementById('whatsapp')
+        const isChecked = document.getElementById('sameAsMobile').checked
+      
+        if (isChecked) {
+          whatsapp.value = phone
+          whatsapp.setAttribute('readonly', true)
+        } else {
+          whatsapp.removeAttribute('readonly')
+          whatsapp.value = ''
+        }
+      }
+    </script>
+
+    {% include 'footer.html' %}
+  </body>
+</html>

@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Fertilizer Recommendation</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet" />
+  </head>
+  
+  <body class="bg-light">
+  {% include 'header.html' %}
+
+
+  <div class="container mt-4">
+    <div class="row">
+
+      <div class="col-lg-6 col-md-12">
+        <h2 class="mb-3 text-center">Get Fertilizer Suggestion</h2>
+        
+        <form  method="post"  class="card p-3 shadow-sm">
+          {% csrf_token %}
+
+          <div class="mb-2">
+            <div class="form-group">
+              <label for="crop">Select Crop:</label>
+              <select name="crop" id="crop" class="form-control" required>
+                <option value="" >--select crop--</option>
+                  {% for crop in fertilizer_suggestions.keys %}
+                      <option value="{{ crop }}" {% if crop == selected_crop %}selected{% endif %}>{{ crop }}</option>
+                  {% endfor %}
+              </select>
+            </div>
+            
+          </div>
+
+
+          
+          <button type="submit" class="btn btn-primary mt-2">Get Fertilizer Suggestion</button>
+        </form>
+      </div>
+
+      <!-- Right Column: Result -->
+      <div class="col-lg-6 col-md-12 mt-4 mt-lg-0">
+        <div class="card p-3 shadow-sm">
+          <!-- Marquee Tag -->
+          
+          
+          <!-- Image and Result -->
+          {% if suggestion %}
+              <div class="alert alert-info mt-3">
+                  <strong>Suggestion for {{ selected_crop }}:</strong> {{ suggestion }}
+              </div>
+              {% else %}
+              <p class="text-warning">Select the crop </p>
+          {% endif %}
+        </div>
+      </div>
+    </div>
+  </div>
+  <br><br><br>
+  <br><br><br>
+  <br><br><br>
+  <br><br><br>
+  <br><br><br>
+  <br><br><br>
+
+
+
+
+
+
+
+{% include 'footer.html' %}

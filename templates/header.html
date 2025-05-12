@@ -33,9 +33,11 @@
             Login
           </a>
           <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
+            <li><a class="dropdown-item"  href="{% url 'worker_login' %}" >Worker Login</a></li>
             <li><a class="dropdown-item"  href="{% url 'office_login' %}" target="_blank">Office Login</a></li>
-            <li><a class="dropdown-item" href="{% url 'farmer_registration' %}">Farmer Login</a></li>
-            <li><a class="dropdown-item" href="#">Admin Login</a></li>
+            <li><a class="dropdown-item" href="{% url 'admin:index' %}" target="_blank">Admin Login</a></li>
+
+            {% comment %} <li><a class="dropdown-item" href="{% url 'farmer_registration' %}">Farmer Login</a></li> {% endcomment %}
           </ul>
         </li>
         
@@ -44,9 +46,9 @@
             Registration
           </a>
           <ul class="dropdown-menu">
-            <li><a class="dropdown-item" href="{% url 'farmer_registration' %}" >Farmer Registration</a></li>
+            {% comment %} <li><a class="dropdown-item" href="{% url 'farmer_registration' %}" >Farmer Registration</a></li> {% endcomment %}
             <li><a class="dropdown-item" href="{% url 'worker_registration' %}">Worker registration</a></li>
-            <li><a class="dropdown-item" href="#">Office registration</a></li>
+            {% comment %} <li><a class="dropdown-item" href="#">Office registration</a></li> {% endcomment %}
           </ul>
         </li>
 

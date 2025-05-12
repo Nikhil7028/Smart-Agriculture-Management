@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Dashboard | worker Portal</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+  <link rel="stylesheet" href="/static/CSS/workerDashBoard.css">
+  
+</head>
+<body>
+
+  <div class="container-fluid">
+    <div class="row">
+
+      <!-- Sidebar -->
+      {% include "worker/w_header.html" %}
+
+      <!-- Main Content -->
+      <div class="col-md-10">
+        <div class="header">
+          <h4>Welcome, {{ request.session.workerName }} </h4>
+        </div>
+        <div class="container py-5">
+          <div class="col-md-10">
+            <div class="header">
+              <h4>Our</h4>
+            </div>
+           {% if msg %}
+              <div class="alert alert-success">{{ msg }}</div>
+            {% endif %}
+
+            <div class="content">
+              <form method="post" action="">
+                {% csrf_token %}
+                <div class="row">
+                    <div class="col-md-12">
+                        <div class="form-group">
+                            <label for="availability">Are you available today? </label>
+                            <!-- Toggle Switch for Availability -->
+                            <div class="form-check form-switch">
+                                <input class="form-check-input" type="checkbox" id="availability" name="availability" {% if status %} checked {% endif %}>
+                                <label class="form-check-label" for="availability">Yes, I am available</label>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-md-12 mt-3">
+                        <button type="submit" class="btn btn-primary">Update Availability</button>
+                    </div>
+                </div>
+            </form>
+            </div>
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </div>
+  {% comment %} Footer {% endcomment %}
+
+ {% include "worker/w_footer.html" %}
