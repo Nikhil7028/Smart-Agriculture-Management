@@ -1,4 +1,3 @@
----
 
 ```markdown
 # 🌾 Smart Agriculture Portal
