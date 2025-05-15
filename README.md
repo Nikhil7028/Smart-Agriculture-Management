@@ -1,5 +1,3 @@
-
-```markdown
 # 🌾 Smart Agriculture Portal
 
 A Django-based web application for crop recommendation, worker management, and government scheme integration to support farmers and agricultural officers.
@@ -102,4 +100,3 @@ Go to: `http://localhost:8000`
 - **Weather info** can be retrieved from the "Weather" tab by entering a valid city name.  
 
 > 💡 *Note*: For the weather feature, ensure you create a `weather.html` template and securely call the API from the backend to avoid exposing your API key.
-```
