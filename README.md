@@ -1,7 +1,3 @@
-It seems like I can’t do more advanced data analysis right now. Please try again later.
-
-However, you can copy and paste the formatted content below directly into your `README.md` file:
-
 ---
 
 ```markdown
@@ -108,5 +104,3 @@ Go to: `http://localhost:8000`
 
 > 💡 *Note*: For the weather feature, ensure you create a `weather.html` template and securely call the API from the backend to avoid exposing your API key.
 ```
-
-Let me know if you'd like me to email or export this as a downloadable `.md` file later.
