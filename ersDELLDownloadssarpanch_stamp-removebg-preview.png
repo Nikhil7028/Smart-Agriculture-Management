@@ -1,0 +1,41 @@
+[33mcommit aa7810720faa0f5349f13ee1b6d79e2b97adaab5[m[33m ([m[1;36mHEAD[m[33m -> [m[1;32mmain[m[33m, [m[1;31morigin/main[m[33m)[m
+Author: Nikhil7028 <nikhilchoudhari980@gmail.com>
+Date:   Thu Apr 24 22:08:27 2025 +0530
+
+    add gitignore file and ignore two files
+
+[33mcommit b134a85e5fe878f5bceffe95fa508560e4a0c033[m
+Author: Nikhil Choudhari <120724098+Nikhil7028@users.noreply.github.com>
+Date:   Thu Apr 24 21:46:18 2025 +0530
+
+    Update README.md
+
+[33mcommit cdaa88ec2ab4f94b019c207ad70440940145a07c[m
+Author: Nikhil7028 <nikhilchoudhari980@gmail.com>
+Date:   Thu Apr 24 21:50:03 2025 +0530
+
+    correct the readme file name
+
+[33mcommit cff6d91c5c3416b6696f0d76dd4fd7d6137f936d[m
+Author: Nikhil7028 <nikhilchoudhari980@gmail.com>
+Date:   Thu Apr 24 21:46:46 2025 +0530
+
+    move readme.md file to root directory
+
+[33mcommit cbe6f794e95c216d9ee17399e67ef6e93cf2af23[m
+Author: Nikhil7028 <nikhilchoudhari980@gmail.com>
+Date:   Thu Apr 24 21:44:33 2025 +0530
+
+    Add the redme file and add three screeenshort of home page in redme file
+
+[33mcommit 869fe61ab83142f2aae00c5b7aa4e9fa71357ca4[m
+Author: Nikhil7028 <nikhilchoudhari980@gmail.com>
+Date:   Thu Apr 24 21:37:58 2025 +0530
+
+    Complete the officer login, worker filter, database for scheme and  officer,add officer dashboard template
+
+[33mcommit fd997d063537564efeb7cc8c0cf481c29a470651[m
+Author: Nikhil7028 <nikhilchoudhari980@gmail.com>
+Date:   Sun Apr 20 15:55:32 2025 +0530
+
+    Ready feature of registration of farmer and worker,crop recommandation, weather, translator

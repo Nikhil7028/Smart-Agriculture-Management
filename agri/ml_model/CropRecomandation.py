@@ -4,7 +4,7 @@ from sklearn.tree import DecisionTreeClassifier
 import joblib
 import os
 
-# Load the dataset (you're already in ml_model)
+# Load the dataset 
 data = pd.read_csv('Crop_recommendation.csv')
 
 # Features and target
@@ -19,4 +19,5 @@ model.fit(X, y)
 model_path = 'crop_recommendation_model.pkl'
 joblib.dump(model, model_path)
 
-print("✅ Model retrained and saved successfully.")
+
+

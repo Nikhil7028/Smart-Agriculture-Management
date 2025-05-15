@@ -18,7 +18,7 @@
           <h4>Welcome, {{ request.session.officeemail }} </h4>
         </div>
       <!-- Stats Cards -->
-      <div class="row mb-4">
+      {% comment %} <div class="row mb-4">
         <div class="col-md-4">
           <div class="card shadow-sm p-4 bg-info text-white">
             <h5>Total Farmers Who Hired</h5>
@@ -39,7 +39,7 @@
             <p class="fs-4">{{ total_requests }}</p>
           </div>
         </div>
-      </div>
+      </div> {% endcomment %}
 
       <!-- Report Table -->
       <h4 class="mt-4">Worker Hire Report</h4>

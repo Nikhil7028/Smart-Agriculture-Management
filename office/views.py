@@ -151,28 +151,6 @@ def changePassword(request):
 
 
 # def report_view(request):
-#     # Count distinct farmers who have made at least one request
-#     total_farmers = HireRequest.objects.values('farmer').distinct().count()
-
-#     # Count distinct workers who have received at least one request
-#     total_workers = HireRequest.objects.values('worker').distinct().count()
-
-#     # Optional: Total hire requests
-#     total_requests = HireRequest.objects.count()
-
-#     # Optional: How many times each worker has been hired
-#     worker_hire_counts = HireRequest.objects.values('worker__fullName').annotate(total=Count('id'))
-
-#     context = {
-#         'total_farmers': total_farmers,
-#         'total_workers': total_workers,
-#         'total_requests': total_requests,
-#         'worker_hire_counts': worker_hire_counts,
-#     }
-#     return render(request, 'office/report.html', context)
-
-
-# def report_view(request):
 #     start_date = request.GET.get('start_date')
 #     end_date = request.GET.get('end_date')
 
